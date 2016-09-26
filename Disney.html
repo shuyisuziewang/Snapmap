@@ -1,0 +1,608 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="Disney.css">
+    <style>
+    #submit {
+      /*position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;*/
+    }
+
+      .demo-blog .demo-blog__posts{
+        background: #FFF;
+        /*padding:8px;*/
+        border-radius:4px;
+        margin-bottom:20px;
+      }
+      .demo-card-event.mdl-card {
+        /*width: 256px;*/
+        height: 256px;
+      }
+      .demo-card-event > .mdl-card__actions {
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      .demo-card-event > .mdl-card__title {
+        align-items: flex-start;
+        background-color:white;
+      }
+      .demo-card-event > .mdl-card__title > h4 {
+        margin-top: 0;
+        color:black;
+      }
+      .demo-card-event > .mdl-card__actions {
+        display: flex;
+        box-sizing:border-box;
+        align-items: center;
+        height:86px;
+        background-color: white;
+      }
+      .demo-card-event > .mdl-card__actions > .material-icons {
+        padding-right: 10px;
+      }
+      .demo-card-event > .mdl-card__title,
+      .demo-card-event > .mdl-card__actions,
+      .demo-card-event > .mdl-card__actions > .mdl-button {
+        color: #A96B04;
+      }
+
+      .demo-card-event > .mdl-card__actions > .mdl-button {
+        background: #FFCC0A;
+        transition: transform .5s ease; 
+        height: 48px;
+        width: 100%;
+      }
+
+      .mdl-checkbox{
+        color: #3E4EB8;
+      }
+
+      header.mdl-layout__header--scroll{
+        background-color:white;
+        /*box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+*/      }
+
+      .demo-blog.mdl-layout .mdl-layout__content{
+        padding-top:64px;
+      }
+      .demo-blog .mdl-card__media{
+        background-size:cover;
+        position: relative;
+      }
+
+      .demo-blog .mdl-card__media h3{
+        font-size:20px;
+        line-height:25px;
+        color:#FFF;
+        z-index: 99;
+      }
+
+      .demo-blog .mdl-card__media .mask {
+        position: absolute;
+        display: block;
+        background-color: rgba(0,0,0,0.2);
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+
+      .mdl-card__actions{
+        justify-content:center;
+      }
+
+      .demo-blog .mdl-mini-footer{
+        margin-top: 0px;
+        background-color: transparent;
+      }
+    </style>
+    <script>
+
+      
+      var send = [0,0,0,0,0,0,0,0,0];
+
+      window.addEventListener("load",function(){
+        document.getElementById("submit").addEventListener("click",function(){
+          sendString();
+        });
+        var divs = document.getElementsByClassName("mdl-card--border");
+        
+        // btn 1 
+        // var btn1 = divs[0].getElementsByTagName("button")[0]
+
+        // btn1.addEventListener("click",function(){
+        //   if(this.innerText == "ADD"){
+        //     send[0]=1;
+        //     this.innerText = "ADDED";
+        //     this.style.backgroundColor = "#FF5722";
+        //   }
+        //   else{
+        //     send[0]=0;
+        //     this.innerText = "ADD";
+        //     this.style.backgroundColor = "#3E4EB8";
+        //   }
+        // });
+
+        // // btn 2
+
+
+        // var btn2 = divs[1].getElementsByTagName("button")[0]
+
+        // btn2.addEventListener("click",function(){
+        //   if(this.innerText == "ADD"){
+        //     send[1]=1;
+        //     this.innerText = "ADDED";
+        //     this.style.backgroundColor = "#FF5722";
+        //   }
+        //   else{
+        //     send[1]=0;
+        //     this.innerText = "ADD";
+        //     this.style.backgroundColor = "#3E4EB8";
+        //   }
+        // });
+
+
+
+
+
+
+        // mouseout mouseover for all buttons
+
+
+
+
+
+        for(var i=0;i<divs.length; i++){
+          
+          var btn = divs[i].getElementsByTagName("button")[0];
+          
+          (function(i,btn){
+            btn.addEventListener("click",function(){
+            if(this.innerText == "ADD"){
+              send[i]=1;
+              this.innerText = "ADDED";
+              this.style.backgroundColor = "#FF5722";
+              this.style.color = "#FFFFFF";
+            }
+            else{
+              send[i]=0;
+              this.innerText = "ADD";
+              this.style.backgroundColor = "#FFCC0A";
+              this.style.color = "#A96B04";
+
+            }
+          });
+          btn.addEventListener("mouseover",function(){
+            if(this.innerText == "ADDED"){
+              this.innerText = "UNADD";
+              // this.style.backgroundColor = "#3E4EB8";
+
+            }
+          });
+          btn.addEventListener("mouseout",function(){
+            if(this.innerText == "UNADD"){
+              this.innerText = "ADDED";
+              // this.style.backgroundColor = "#3E4EB8";
+
+            }
+          });
+        })(i,btn);
+
+        }
+      });
+
+      var connection = new WebSocket('ws://192.168.0.148:81/', ['arduino']);
+      connection.onopen = function () {
+          connection.send('Message from Browser to ESP8266 yay its Working!! ' + new Date()); 
+          connection.send('ping');
+          
+
+          connection.send('Time: ' + new Date()); 
+      };
+      connection.onerror = function (error) {
+          console.log('WebSocket Error ', error);
+      };
+      connection.onmessage = function (e) {
+          console.log('Server: ', e.data);
+          connection.send('Time: ' + new Date()); 
+      };
+      function sendString(){
+          // var str="";
+          // var checkbox = document.getElementsByClassName('mdl-checkbox__input');
+          // for(var i=0; i<checkbox.length; ++i){
+          //   if(checkbox[i].checked){
+          //        str+="1";
+          //   }
+          //   else{
+          //     str+="0";
+          //   }
+          // }
+          var str = window.send.join("");
+          console.log(str);
+          connection.send(str); 
+      }
+    </script>
+  </head>
+  <body>
+
+    <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+      <header class="mdl-layout__header  mdl-layout__header--scroll snapmap-header">
+        <div class="mdl-layout__header-row snapmap-logo-row">
+                <span class="mdl-layout__title">
+                    <div class="snapmap-logo"></div>
+                </span>
+            </div> 
+      </header>
+      <main class="mdl-layout__content">
+        <h2 class="snapmap-title">Select your favorite shows</h2>
+        <div class="mdl-grid">
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">Main Street Philharmonic at Storybook Circus</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                
+                <div>
+                  <span> Magic Kingdom Park : Fantasyland</span>
+                  <span>Age Interest : All Ages</span>
+                  <span> Duration: 20 min</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      12:30 PM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <!-- Raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">The Royal Majesty Makers</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Fantasyland</span>
+                  <!-- <span> Valid Park Admission Required</span> -->
+                  <span> Age Interest : All Ages</span>
+                  <span> Duration: 25 minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      9:30 AM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <!-- Raised button with ripple -->
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">Mickey's Royal Friendship Faire</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Main Street, U.S.A.</span>
+                  <span>Age Interest : All Ages</span>
+                  <span> Thrill Level : Dark, Loud, Slow Rides</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      10:30 AM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">The Notorious Banjo Brothers and Bob</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Frontierland</span>
+                  <span> Age Interest : All Ages</span>
+                  <span> Duration : 20minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      1:20 PM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#"> Captain Jack Sparrow's Pirate Tutorial</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Adventureland</span>
+                  <span> Age Interest : All Ages</span>
+                  <span> Duration : 25 minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      2:15 PM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">Casey's Corner Pianist</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Main Street, U.S.A.</span>
+                  <span> Age Interest : All Ages</span>
+                  <span> Duration : 20 minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      3:00 PM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">Main Street Philharmonic at Main Street, U.S.A.
+  </a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Walt Disney World® Resort</span>
+                  <span>Age Interest : All Ages</span>
+                  <span> Duration : 20 minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      3:50 PM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#"> Magic Kingdom Welcome Show</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Main Street, U.S.A.</span>
+                  <span>Age Interest : All Ages</span>
+                  <span> Duration: 10 minutes</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      8:40 AM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+
+          <div class="demo-blog__posts mdl-grid mdl-cell mdl-cell--6-col mdl-shadow--2dp">
+            <div class="mdl-card coffee-pic mdl-cell--8-col">
+              <div class="mdl-card__media mdl-color-text--grey-50">
+                <span class="mask"></span>
+                <h3><a href="#">INCREDIBLES Super Dance Party</a></h3>
+              </div>
+              <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
+                <div>
+                  <span> Magic Kingdom Park : Tomorrowland</span>
+                  <span>Age Interest : Preschoolers, Kids</span>
+                </div>
+              </div>
+            </div>
+            <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop demo-card-event">
+             
+            <div class="mdl-card__title mdl-card--expand">
+                    <h4>
+                      May 24, 2016<br>
+                      5:00 PM
+                    </h4>
+                  </div>
+                  <div class="mdl-card__actions mdl-card--border">
+                     <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                      Add
+                    </button>
+                  </div>
+                
+            </div>
+            
+            
+          </div>
+
+          
+      </main>
+
+      <footer class="mdl-mini-footer">
+        <button id="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color-text--white">Submit
+          </button>
+      </footer>
+
+
+    </div>
+    
+    
+    <script src="mdl/material.min.js"></script>
+
+  </body>
+  <script>
+    
+  </script>
+</html>
